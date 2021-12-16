@@ -41,8 +41,6 @@ function [tangent_cord] = tangent (obstacles_ID, agent, radius, target, position
                 left = target(1);
             end
 
-%             disp('point');
-%             disp([left, right]);
 
             if tangent1(1) < right && tangent1(1) > left && tangent2(1) < right && tangent2(1) > left
 

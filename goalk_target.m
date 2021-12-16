@@ -32,8 +32,8 @@ function [goalk_pos] = goalk_target (ball, goal, enemy)
     
     vec_enemy_ball = enemy.z-ball.z;
 
-    if norm(vec_enemy_ball) < 175 && (vec_enemy_ball(1) * goal(1)) > 0
-        goalk_pos(2) = enemy.y + abs(enemy.x - goal(1)) * tan(enemy.ang);
+    if norm(vec_enemy_ball) < 175 %&& (vec_enemy_ball(1) * goal(1)) > 0
+        goalk_pos(2) = enemy.y + abs(enemy.x - goal(1)) * sin(enemy.ang) / abs(cos(enemy.ang));      %%%%%%%%%
         disp('by enemy"s turning');
     elseif numel(mass_x) >= max_hist_len
         pol = polyfit(mass_x, mass_y, 1);

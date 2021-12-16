@@ -31,7 +31,7 @@ disp('ITERATION');
 max_speed = 65;
 
 
-global field_length field_width
+global field_length field_width goal_weight
 field_length = 4500; %max cord (/2)
 field_width = 2500;
 
@@ -55,8 +55,8 @@ if (RP.Ball.I > 0)
     end
 end
 
-enemy_ID = 4;
-control_ID = 0;
+enemy_ID = 1;
+control_ID = 1;
 goalkeeper_ID = 2;
 enemy_goalkeeper_ID = 0;
 
@@ -64,7 +64,7 @@ if control_ID ~=0
     
     obstacles_ID = [];
     for i = 1:8
-        if RP.Blue(i).I == 1
+        if RP.Blue(i).I > 0
             obstacles_ID = [obstacles_ID, i];
         end
     end
@@ -86,11 +86,11 @@ if control_ID ~=0
         speed_xy = target_preg(RP.Blue(control_ID), preg_k, ball_kick(ball_backup, RP.Blue(control_ID).z, goal));
         disp('point');
     end
-%     if enemy_goalkeeper_ID ~= 0
-%         turn_speed = turn_to(RP.Blue(control_ID), 10 , goal_kick_pos(RP.Blue(enemy_goalkeeper_ID).z, RP.Blue(control_ID).z, goal));
-%     else
+     if enemy_goalkeeper_ID ~= 0
+         turn_speed = turn_to(RP.Blue(control_ID), 10 , goal_kick_pos(RP.Blue(enemy_goalkeeper_ID).z, RP.Blue(control_ID).z, goal));
+     else
         turn_speed = turn_to(RP.Blue(control_ID), 10 , goal);
-%     end
+     end
     
     % disp(speed_xy);
     kickd = dist_kick(RP.Blue(control_ID), ball_backup);
@@ -103,7 +103,7 @@ if control_ID ~=0
 end
 
 if goalkeeper_ID ~= 0
-    goalk_targ = goalk_target(ball_backup, goalk_goal, RP.Blue(6));
+    goalk_targ = goalk_target(ball_backup, goalk_goal, RP.Blue(enemy_ID));
     goalk_speed_xy = goalk_target_preg(RP.Blue(goalkeeper_ID), goalk_preg_k, goalk_targ);
 
     psevdo_bot = RP.Blue(goalkeeper_ID);

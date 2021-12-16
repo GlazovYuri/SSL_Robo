@@ -1,31 +1,28 @@
 function [targ] = goal_kick_pos (goalkeeper_pos, position, goal)
-goal_width = 700;
+global goal_width
+delta_to_kick = 150;
 
-if norm(goal - position) > 1000
+if norm(goal - position) > 1250
     targ = goal;
-    disp('daleko');
+    disp('too far');
 else
+    vec_to_up = (goal + [0, goal_weight]) - position;
+    vec_to_down = (goal - [0, goal_weight]) - position;
+    vec_to_goalk = goalkeeper_pos - position;
     
-    point1 = tangent_solo(goalkeeper_pos, 150, goal, position);
+    up_ang = sin(vec_to_up) / abs(cos(vec_to_up));
+    down_ang = sin(vec_to_down) / abs(cos(vec_to_down));
+    goalk_ang = sin(vec_to_goalk) / abs(cos(vec_to_goalk));
 
-    if point1(1) == 0
+    if goalk_ang < down_ang || goalk_ang > up_ang
         targ = goal;
         disp('no goalk');
+    elseif up_ang - goalk_ang > goalk_ang - down_ang
+        targ = goal - [0, delta_to_kick];
+        disp('moving up');
     else
-        vec1 = point1 - position;
-        vec1 = vec1 / norm(vec1) * (abs(position(1) - goal(1)) / abs(cos(atan2(vec1(2), vec1(1)))));
-        
-        point_pos = vec1 + position;
-        
-        if point_pos(2) > 0
-            goal_edge = goal + [0, goal_width / 2];
-        else
-            goal_edge = goal - [0, goal_width / 2];
-        end
-        
-        targ = [(point_pos(1) + goal_edge(1)) / 2, (point_pos(2) + goal_edge(2)) / 2];
-        
-        disp('moving');
+        targ = goal + [0, delta_to_kick];
+        disp('moving down')
     end
     
 end
