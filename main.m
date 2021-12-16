@@ -28,7 +28,7 @@ zMain_End=RP.zMain_End;
 
 disp('ITERATION');
 
-max_speed = 45;
+max_speed = 55;
 
 
 global field_length field_width
@@ -55,9 +55,9 @@ if (RP.Ball.I > 0)
     end
 end
 
-enemy_ID = 3;
-control_ID = 3;
-goalkeeper_ID = 4;
+enemy_ID = 4;
+control_ID = 4;
+goalkeeper_ID = 2;
 enemy_goalkeeper_ID = 0;
 
 if control_ID ~=0
@@ -110,7 +110,7 @@ if goalkeeper_ID ~= 0
     psevdo_bot.z = goalk_targ;
     psevdo_bot.x = goalk_targ(1);
     psevdo_bot.y = goalk_targ(2);
-    goalk_turn_speed = turn_to(RP.Blue(goalkeeper_ID), 5 , RP.Blue(goalkeeper_ID).z + [0, 100]);
+    goalk_turn_speed = turn_to(RP.Blue(goalkeeper_ID), 6 , RP.Blue(goalkeeper_ID).z + [0, 100]);
 
     RP.Blue(goalkeeper_ID).rul = Crul(goalk_speed_xy(1), goalk_speed_xy(2), 0, goalk_turn_speed, 0);
 end

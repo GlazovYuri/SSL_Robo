@@ -9,8 +9,10 @@ function [target_to_kick] = ball_kick (ball, position, goal)
         keeping_ball = 0;    
     end
     
-    if norm(ball.z - position) < 450
-        max_speed = 20;
+    toballvec = norm(ball.z - position);
+
+    if toballvec < 450
+        max_speed = toballvec / 20;
     end
     
     vec1 = ball.z - goal;
@@ -31,9 +33,9 @@ function [target_to_kick] = ball_kick (ball, position, goal)
     if dist1 > -75 && dist1 < 325 && abs(dist2) < 45 || (keeping_ball == 1 && ball.I == 0)
         target_to_kick = ball.z + (vec1 / nvec1 * 50);
         keeping_ball = 1;
-            
+        
         if norm(position - goal) < 1500
-            max_speed = abs(dist1) / 5 + 25;
+            max_speed = 15;
         end
         
         disp('kick');
