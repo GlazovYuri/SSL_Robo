@@ -12,7 +12,7 @@ function [target_to_kick] = ball_kick (ball, position, goal)
     toballvec = norm(ball.z - position);
 
     if toballvec < 450
-        max_speed = toballvec / 20;
+        max_speed = toballvec / 20 + 10;
     end
     
     vec1 = ball.z - goal;

@@ -30,7 +30,9 @@ function [goalk_pos] = goalk_target (ball, goal, enemy)
         mass_y = [];
     end
     
-    if norm(enemy.z-ball.z) < 150 && abs(enemy.ang) < pi / 2
+    vec_enemy_ball = enemy.z-ball.z;
+
+    if norm(vec_enemy_ball) < 175 && (vec_enemy_ball(1) * goal(1)) > 0
         goalk_pos(2) = enemy.y + abs(enemy.x - goal(1)) * tan(enemy.ang);
         disp('by enemy"s turning');
     elseif numel(mass_x) >= max_hist_len
@@ -38,7 +40,8 @@ function [goalk_pos] = goalk_target (ball, goal, enemy)
         goalk_pos(2) = pol(1) * goalk_block + pol(2);
         disp('polyfit');
     else
-        goalk_pos(2) = ball.y / 1.8;
+        goalk_pos(2) = ball.y / 1.7;
+        disp('normal_goalk_mode');
     end
     
     
