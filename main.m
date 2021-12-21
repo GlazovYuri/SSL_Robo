@@ -26,7 +26,7 @@ zMain_End=RP.zMain_End;
 %     RP.Blue(control_ID).rul.EnableSpinner = true;
 % end
 
-disp('ITERATION');
+disp('ITERATION<<');
 
 max_speed = 65;
 
@@ -55,10 +55,10 @@ if (RP.Ball.I > 0)
     end
 end
 
-enemy_ID = 4;
+enemy_ID = 0;
 control_ID = 4;
-goalkeeper_ID = 2;
-enemy_goalkeeper_ID = 0;
+goalkeeper_ID = 0;
+enemy_goalkeeper_ID = 2;
 
 if control_ID ~=0
     
@@ -82,12 +82,13 @@ if control_ID ~=0
     if tang(1) ~= 0
         speed_xy = target_preg(RP.Blue(control_ID), preg_k, tang);
     else
-        disp('point0');
+        %disp('point0');
         speed_xy = target_preg(RP.Blue(control_ID), preg_k, ball_kick(ball_backup, RP.Blue(control_ID).z, goal));
-        disp('point');
+        %disp('point');
     end
+
      if enemy_goalkeeper_ID ~= 0
-         turn_speed = turn_to(RP.Blue(control_ID), 10 , goal_kick_pos(RP.Blue(enemy_goalkeeper_ID).z, RP.Blue(control_ID).z, goal));
+        turn_speed = turn_to(RP.Blue(control_ID), 10 , goal_kick_pos(RP.Blue(enemy_goalkeeper_ID).z, RP.Blue(control_ID).z, goal));
      else
         turn_speed = turn_to(RP.Blue(control_ID), 10 , goal);
      end
@@ -103,7 +104,11 @@ if control_ID ~=0
 end
 
 if goalkeeper_ID ~= 0
-    goalk_targ = goalk_target(ball_backup, goalk_goal, RP.Blue(enemy_ID));
+    if enemy_ID ~= 0
+        goalk_targ = goalk_target(ball_backup, goalk_goal, RP.Blue(enemy_ID));
+    else
+        goalk_targ = goalk_target(ball_backup, goalk_goal, 0);
+    end
     goalk_speed_xy = goalk_target_preg(RP.Blue(goalkeeper_ID), goalk_preg_k, goalk_targ);
 
     psevdo_bot = RP.Blue(goalkeeper_ID);

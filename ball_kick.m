@@ -30,7 +30,7 @@ function [target_to_kick] = ball_kick (ball, position, goal)
 %     disp(ball.z);
     
     
-    if dist1 > -75 && dist1 < 325 && abs(dist2) < 45 || (keeping_ball == 1 && ball.I == 0)
+    if dist1 > -75 && dist1 < 325 && abs(dist2) < 25 || (keeping_ball == 1 && ball.I == 0)
         target_to_kick = ball.z + (vec1 / nvec1 * 50);
         keeping_ball = 1;
         

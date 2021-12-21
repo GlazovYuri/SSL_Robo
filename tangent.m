@@ -47,11 +47,11 @@ function [tangent_cord] = tangent (obstacles_ID, agent, radius, target, position
                 if d > 0
                     ang1 =   atan2(position(2) - obstacle(2), position(1) - obstacle(1))  - asin(radius / sqrt((position(1) - obstacle(1))^2 + (position(2) - obstacle(2))^2));
                     disp('left way');
-                    disp(ang1 * 180 / pi);
+                    %disp(ang1 * 180 / pi);
                 else
-                    ang1 =  -atan2(position(2) - obstacle(2), position(1) - obstacle(1))  - asin(radius / sqrt((position(1) - obstacle(1))^2 + (position(2) - obstacle(2))^2));
+                    ang1 =   atan2(position(2) - obstacle(2), position(1) - obstacle(1))  + asin(radius / sqrt((position(1) - obstacle(1))^2 + (position(2) - obstacle(2))^2));
                     disp('right way');
-                    disp(ang1 * 180 / pi);
+                    %disp(ang1 * 180 / pi);
                 end
                 vec4 = [radius * cos(ang1), radius * sin(ang1)];
                     tangent_cord = [tangent_cord; obstacle + vec4];

@@ -41,7 +41,7 @@ function [tangent_cord] = tangent_solo (obstacle, radius, target, position)
                     disp('(solo) left way');
                     disp(ang1 * 180 / pi);
                 else
-                    ang1 =  -atan2(position(2) - obstacle(2), position(1) - obstacle(1))  - asin(radius / sqrt((position(1) - obstacle(1))^2 + (position(2) - obstacle(2))^2));
+                    ang1 =   atan2(position(2) - obstacle(2), position(1) - obstacle(1))  + asin(radius / sqrt((position(1) - obstacle(1))^2 + (position(2) - obstacle(2))^2));
                     disp('(solo) right way');
                     disp(ang1 * 180 / pi);
                 end

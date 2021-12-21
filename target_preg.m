@@ -2,7 +2,7 @@ function speed_xy = target_preg(agent, k, target)
 
 global max_speed field_length field_width
 
-disp(target);
+%disp(target);
 
 goal_delta_x = 1100; 
 goal_delta_y = 1100; 
@@ -17,7 +17,7 @@ if abs(target(1)) > (field_length-goal_delta_x)
     end
 end
 
-disp(target);
+%disp(target);
 
 ang = atan2(target(2) - agent.y, target(1) - agent.x);
 
