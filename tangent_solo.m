@@ -39,11 +39,11 @@ function [tangent_cord] = tangent_solo (obstacle, radius, target, position)
                 if d > 0
                     ang1 =   atan2(position(2) - obstacle(2), position(1) - obstacle(1))  - asin(radius / sqrt((position(1) - obstacle(1))^2 + (position(2) - obstacle(2))^2));
                     disp('(solo) left way');
-                    disp(ang1 * 180 / pi);
+                    %disp(ang1 * 180 / pi);
                 else
                     ang1 =   atan2(position(2) - obstacle(2), position(1) - obstacle(1))  + asin(radius / sqrt((position(1) - obstacle(1))^2 + (position(2) - obstacle(2))^2));
                     disp('(solo) right way');
-                    disp(ang1 * 180 / pi);
+                    %disp(ang1 * 180 / pi);
                 end
                 vec4 = [radius * cos(ang1), radius * sin(ang1)];
                 tangent_cord = obstacle + vec4;
@@ -51,7 +51,7 @@ function [tangent_cord] = tangent_solo (obstacle, radius, target, position)
 %                 disp(obstacle);
 %                 disp(ang1 * 180 / pi);
 %                 disp('vec4');
-%                 disp(vec4);
+                 disp(vec4);
 %                 disp('start');
 %                 disp(tangent_cord);
             else

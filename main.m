@@ -57,7 +57,7 @@ end
 
 enemy_ID = 0;
 control_ID = 4;
-goalkeeper_ID = 0;
+goalkeeper_ID = 2;
 enemy_goalkeeper_ID = 2;
 
 if control_ID ~=0
@@ -95,7 +95,7 @@ if control_ID ~=0
     
     % disp(speed_xy);
     kickd = dist_kick(RP.Blue(control_ID), ball_backup);
-    RP.Blue(control_ID).rul = Crul(speed_xy(1), speed_xy(2), kickd, turn_speed, 0);
+    %RP.Blue(control_ID).rul = Crul(speed_xy(1), speed_xy(2), kickd, turn_speed, 0);
 
     %pow_kick = kick(RP.Blue(control_ID), goal);
     %RP.Blue(control_ID).rul.AutoKick = 1;
