@@ -55,8 +55,8 @@ if (RP.Ball.I > 0)
     end
 end
 
-enemy_ID = 1;
-control_ID = 1;
+enemy_ID = 4;
+control_ID = 4;
 goalkeeper_ID = 2;
 enemy_goalkeeper_ID = 0;
 
