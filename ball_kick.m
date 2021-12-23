@@ -65,8 +65,8 @@ function [target_to_kick] = ball_kick (ball, position, goal)
         disp('near ball');
     else
         
-        tar_vec = (ball.z - goal) / norm(ball.z - goal) * 100;
-        kick_targ = tangent_solo(ball.z, 125, ball.z + tar_vec, position);
+        tar_vec = (ball.z - goal) / norm(ball.z - goal) * 150;
+        kick_targ = tangent_solo(ball.z, 100, ball.z +  tar_vec, position);
         
         if (kick_targ(1) ~= 0)
             target_to_kick = kick_targ;
