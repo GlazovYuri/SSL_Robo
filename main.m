@@ -30,14 +30,13 @@ disp('ITERATION<<');
 
 max_speed = 65;
 
-
 global field_length field_width goal_weight
 field_length = 4500; %max cord (/2)
 field_width = 2500;
 
-goal = [-field_length, 0];
-goalk_goal = [-field_length, 0];
-goal_weight = 750; %change to width
+goal = [-field_length, 0];               % + if you attack right half of field 
+goalk_goal = [-field_length, 0];         % + if you defend right half of field
+goal_weight = 500; %change to width
 
 preg_k =0.3;
 goalk_preg_k =0.25;
