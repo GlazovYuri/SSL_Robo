@@ -38,6 +38,7 @@ goal = [-field_length, 0];               % + if you attack right half of field
 goalk_goal = [-field_length, 0];         % + if you defend right half of field
 goal_weight = 500; %change to width
 
+
 preg_k =0.3;
 goalk_preg_k =0.25;
 

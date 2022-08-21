@@ -1,4 +1,4 @@
-function [power] = kick (agent, ball)
+function [power] = kick (agent, ball)    %turn on autokick if robot can get into the goal
 
 dist0 = norm(ball.z - agent.z);
 

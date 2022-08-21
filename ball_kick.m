@@ -12,7 +12,7 @@ function [target_to_kick] = ball_kick (ball, position, goal)
     toballvec = norm(ball.z - position);
 
     if toballvec < 450
-        max_speed = toballvec / 20 + 10;
+        max_speed = toballvec / 20 + 10;    %low speed if robot near the ball
     end
     
     vec1 = ball.z - goal;
@@ -21,8 +21,8 @@ function [target_to_kick] = ball_kick (ball, position, goal)
     nvec1 = nvec1 + 150;
     vvec = position - ball.z;
     
-    dist1 = dot(vvec, vec1/nvec1);
-    dist2 = dot(vvec, [vec1(2), -vec1(1)]/nvec1);
+    dist1 = dot(vvec, vec1/nvec1);                   %vertical   offset (looking away from the ball towards the goal)
+    dist2 = dot(vvec, [vec1(2), -vec1(1)]/nvec1);    %horizontal offset
     
 %     disp('position');
 %     disp(position);
@@ -30,7 +30,7 @@ function [target_to_kick] = ball_kick (ball, position, goal)
 %     disp(ball.z);
     
     
-    if dist1 > -75 && dist1 < 325 && abs(dist2) < 25 || (keeping_ball == 1 && ball.I == 0)
+    if dist1 > -75 && dist1 < 325 && abs(dist2) < 25 || (keeping_ball == 1 && ball.I == 0)    %robot control the ball
         target_to_kick = ball.z + (vec1 / nvec1 * 50);
         keeping_ball = 1;
         
@@ -39,7 +39,7 @@ function [target_to_kick] = ball_kick (ball, position, goal)
         end
         
         disp('kick');
-    elseif norm(ball.z - position) < 200
+    elseif norm(ball.z - position) < 200    %robot near the ball
         vec3 = (position - ball.z);
         
         vecc = vec1 + goal;
@@ -63,7 +63,7 @@ function [target_to_kick] = ball_kick (ball, position, goal)
         keeping_ball = 0;
         
         disp('near ball');
-    else
+    else    %robot goes to the ball
         
         tar_vec = (ball.z - goal) / norm(ball.z - goal) * 150;
         kick_targ = tangent_solo(ball.z, 100, ball.z +  tar_vec, position);
