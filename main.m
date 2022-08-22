@@ -97,7 +97,7 @@ if control_ID ~=0
     kickd = dist_kick(RP.Blue(control_ID), ball_backup);
     RP.Blue(control_ID).rul = Crul(speed_xy(1), speed_xy(2), kickd, turn_speed, 0);
 
-    %pow_kick = kick(RP.Blue(control_ID), goal);
+    %pow_kick = kick(RP.Blue(control_ID), goal);    %turn on when autokick works correct (technically)
     %RP.Blue(control_ID).rul.AutoKick = 1;
     %disp(RP.Blue(control_ID).isBallInside);
     

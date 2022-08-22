@@ -40,7 +40,7 @@ function [goalk_pos] = goalk_target (ball, goal, enemy)
         goalk_pos(2) = pol(1) * goalk_block + pol(2);
         disp('polyfit');
     else
-        goalk_pos(2) = ball.y / 1.7;
+        goalk_pos(2) = ball.y / abs(ball.x - goal(1)) * 300;
         disp('normal_goalk_mode');
     end
     
