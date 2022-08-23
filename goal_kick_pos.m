@@ -9,7 +9,7 @@ else
     vec_to_goalk = goalkeeper_pos - position;
     vec_to_goal = goal - position;
 
-    proect_goalk = vec_to_goalk(2) * (vec_to_goal(1) / vec_to_goalk(1)) + position(2); 
+    proect_goalk = vec_to_goalk(2) * (vec_to_goal(1) / vec_to_goalk(1)) + position(2);    %projection of the enemy goalk to the goal line
 
     if abs(proect_goalk) > goal_weight
         targ = goal;

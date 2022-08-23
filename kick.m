@@ -1,4 +1,4 @@
-function [power] = kick (agent, goal)
+function [power] = kick (agent, goal)    %turn on autokick if robot can get into the goal
 
 global field_length
 dist = field_length;  %half of field
