@@ -6,4 +6,4 @@
 
 Мои работы по теме проекта: https://drive.google.com/drive/folders/1Wi6IzVDGqv_gja4BSTF5mq0jaowxVBlr?usp=sharing
 
-При появлении вопросов прощу обращаться на мою почту glazov.y0@gmail.com или Telegram @Glazov_Y
+При появлении вопросов прощу обращаться на мою почту glazov.y0@gmail.com или Telegram @glazovy
